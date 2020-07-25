@@ -9,7 +9,7 @@ const restaurantSchema = new Schema({
     type: String,
     required: false 
   },
-  name: {
+  name_en: {
     type: String,
     required: false 
   },

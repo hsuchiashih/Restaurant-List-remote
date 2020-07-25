@@ -1,0 +1,51 @@
+
+<div class="card" style="width: 30rem; margin: 5% auto;">
+  <div class="card-header" >
+    新增喜愛的餐廳清單
+  </div>
+  <div class="card-body">
+    <form action="/restaurants" method="POST">
+      <div class="form-group">
+        <label for="">餐廳中文名稱</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="餐廳中文名稱" name="name">
+      </div>
+      <div class="form-group">
+        <label for="">餐廳英文名稱</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="餐廳英文名稱" name="name_en">
+      </div>
+      <div class="form-group">
+        <label for="">料理類型</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="料理類型" name="category">
+      </div>
+      <div class="form-group">
+        <label for="">地址</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="地址" name="location">
+      </div>
+      <div class="form-group">
+        <label for="">電話</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="電話" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="">評分</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="評分" name="rating">
+      </div>
+      <div class="form-group">
+        <label for="">地圖（請輸入網址)</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="地圖（請輸入網址)" name="google_map" value="https://goo.gl/maps/BJdmLuVdDbw">
+      </div>
+      <div class="form-group">
+        <label for="">詳細資訊</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="詳細資訊" name="description">
+      </div>
+      <div class="form-group">
+        <label for="">照片（請輸入網址)</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="照片" name="image" value="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg"> 
+      </div>
+      {{!-- <div class="form-group">
+        <label for="exampleFormControlFile1">照片</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" >
+      </div> --}}
+      <button type="submit" class="btn btn-primary">Create</button>  
+    </form>
+  </div>
+</div>
