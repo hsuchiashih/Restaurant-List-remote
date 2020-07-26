@@ -43,7 +43,6 @@ app.get('/', (req, res ) => {
     .lean()
     .then( restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
-    // res.render('index', { restaurants: restaurantList.results })
 })
 
 
@@ -53,16 +52,22 @@ app.get('/', (req, res ) => {
 //     res.render('show', { restaurant: restaurantfiltered })
 // })
 
-// app.get('/search', (req, res) => {
-//     // console.log('req.query', req.query)
-//     const keyword = req.query.keyword
-//     const restaurants =  restaurantList.results.filter
-//     ( restaurant => 
-//       restaurant.name.includes(keyword) || 
-//       restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
-//       restaurant.category.includes(keyword))
-//     res.render('index', { restaurants: restaurants, keyword: keyword })
-// })
+// 搜尋
+app.get('/search', (req, res) => {
+    // console.log('req.query', req.query)
+    const keyword = req.query.keyword
+   restaurantList.find({ 
+     name: { $regex: keyword, $options: "i" },})
+   .lean()
+   .then(restaurants => res.render('index', { restaurants: restaurants }))
+   .catch(error => console.log(error))
+    // const restaurants =  restaurantList.results.filter
+    // ( restaurant => 
+    //   restaurant.name.includes(keyword) || 
+    //   restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
+    //   restaurant.category.includes(keyword))
+    // res.render('index', { restaurants: restaurants, keyword: keyword })
+})
 
 // 新增
 app.get('/restaurants/new', (req, res) => {
@@ -131,6 +136,16 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .then(()=> res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
+
+//刪除
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return restaurantList.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 // start and listen on the Express server
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

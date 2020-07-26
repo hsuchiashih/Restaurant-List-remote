@@ -71,6 +71,15 @@ header {
     font-size: 3rem;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+
+  a { 
+    text-decoration: none !important; 
+    color:#666666
+    }
+  a:hover { 
+    text-decoration: none !important;
+    color:#666666 
+    }   
   
   @media screen and (max-width: 768px) {
     .restaurant-show-title {

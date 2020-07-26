@@ -9,10 +9,10 @@ db.on('error', () => {
   console.log('mongodb error!')
 })
 db.once('open', () => {
-    console.log('mongodb connected!')
-    const results = restaurant_list.results
-    for (let i = 0; i < results.length; i++) {
-        Restaurant.create(results[i])
-    }
-    console.log('done!')
+  console.log('mongodb connected!')
+  const results = restaurant_list.results
+  for (let i = 0; i < results.length; i++) {
+      Restaurant.create(results[i])
+  }
+  console.log('done!')
 })
