@@ -21,7 +21,7 @@
                   <a href="/restaurants/{{ restaurant._id }}/edit">
                     <button type="button" class="btn btn-info mr-2">修改資訊</button>
                   </a>
-                  <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+                  <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline;">
                     <button type="submit" class="btn btn-warning mr-2">刪除餐廳</button>
                   </form>
                   <a href="/">

@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 const restaurantSchema = new Schema({
   id :{
     type: Number, // 資料型別是字串
-    required: false // 這是個必填欄位
+    required: false  // 這是個必填欄位
   },
   name: {
     type: String,
-    required: false 
+    required: true 
   },
   name_en: {
     type: String,

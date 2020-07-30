@@ -8,9 +8,11 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 // require body-parser
 const bodyParser = require('body-parser')
+// 載入 method-override
+const methodOverride = require('method-override') 
 
 // const restaurantList = require('./models/seeds/restaurant.json')
-   const restaurantList = require('./models/restaurant')
+const restaurantList = require('./models/restaurant')
 
 // setting template engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -37,21 +39,18 @@ db.once('open', () => {
 // setting body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// 設定每一筆請求都會透過 methodOverride 進行前置處理
+app.use(methodOverride('_method'))
+
 // routes setting
 app.get('/', (req, res ) => {
+    console.log(restaurantList)
     restaurantList.find()
     .lean()
+    .sort({ name: 'asc' })
     .then( restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-
-
-// app.get('/restaurants/:restaurant_id', (req, res) => {
-//     // console.log(req.params.restaurant_id)
-//     const restaurantfiltered = restaurantList.results.find( restaurant => restaurant.id.toString() === req.params.restaurant_id )
-//     res.render('show', { restaurant: restaurantfiltered })
-// })
-
 // 搜尋
 app.get('/search', (req, res) => {
     // console.log('req.query', req.query)
@@ -96,6 +95,7 @@ app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return restaurantList.findById(id)
     .lean()
+    .sort({_id: 'asc'})
     .then((restaurant) => res.render('show', { restaurant }))
     .catch(error => console.log(error))
 })
@@ -109,7 +109,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -138,7 +138,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //刪除
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return restaurantList.findById(id)
     .then(restaurant => restaurant.remove())
