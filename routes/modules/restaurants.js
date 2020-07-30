@@ -6,11 +6,11 @@ const restaurantList = require('../../models/restaurant')
 
 // 定義路由
 // 新增
-router.get('/restaurants/new', (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
-router.post('/restaurants', (req, res) => {
+router.post('/', (req, res) => {
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -28,7 +28,7 @@ router.post('/restaurants', (req, res) => {
 })
 
 //瀏覽
-router.get('/restaurants/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const id = req.params.id
   return restaurantList.findById(id)
     .lean()
@@ -38,7 +38,7 @@ router.get('/restaurants/:id', (req, res) => {
 })
 
 //修改
-router.get('/restaurants/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return restaurantList.findById(id)
     .lean()
@@ -46,7 +46,7 @@ router.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.put('/restaurants/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -75,7 +75,7 @@ router.put('/restaurants/:id', (req, res) => {
 })
 
 //刪除
-router.delete('/restaurants/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return restaurantList.findById(id)
     .then(restaurant => restaurant.remove())
