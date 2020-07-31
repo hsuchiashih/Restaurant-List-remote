@@ -1,7 +1,7 @@
 # 美食餐廳清單
 ## 環境建置與需求 (prerequisites)：
    Node.js <br>
-   express.js
+   express.js <br>
    
 ## 安裝與執行步驟 (installation and execution)：
    1. 打開你的 terminal，Clone 此專案至本機電腦
@@ -43,3 +43,4 @@
   3. 可以新增一家餐廳
   4. 可以修改一家餐廳的資訊
   5. 可以刪除一家餐廳
+  6. 可以依照喜愛的方式排序
