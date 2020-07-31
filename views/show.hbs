@@ -1,11 +1,22 @@
-<link rel="stylesheet" href="/stylesheets/style.css">
+<link
+  rel="stylesheet"
+  href="/stylesheets/style.css"
+>
 <header>
   <!-- navigation -->
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="/">
-        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
-          width="30" height="30" class="d-inline-block align-top" alt="好。吃">
+      <a
+        class="navbar-brand"
+        href="/"
+      >
+        <img
+          src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt="好。吃"
+        >
         我的餐廳清單
       </a>
     </div>
@@ -17,16 +28,29 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
-      <div class="btn-group mb-5" role="group" aria-label="Basic example">
-                  <a href="/restaurants/{{ restaurant._id }}/edit">
-                    <button type="button" class="btn btn-info mr-2">修改資訊</button>
-                  </a>
-                  <form action="/restaurants/{{ restaurant._id }}?_method=DELETE" method="POST" style="display: inline;">
-                    <button type="submit" class="btn btn-warning mr-2">刪除餐廳</button>
-                  </form>
-                  <a href="/">
-                    <button type="button" class="btn btn-secondary mr-2">回首頁</button>
-                  </a>  
+      <div
+        class="btn-group mb-5"
+        role="group"
+        aria-label="Basic example"
+      >
+        <a href="/restaurants/{{ restaurant._id }}/edit">
+          <button
+            type="button"
+            class="btn btn-info mr-2"
+          >修改資訊</button>
+        </a>
+        <button
+          type="submit"
+          class="btn btn-warning mr-2"
+          data-toggle="modal"
+          data-target="#deleteModal{{restaurant._id}}"
+        >刪除餐廳</button>
+        <a href="/">
+          <button
+            type="button"
+            class="btn btn-secondary mr-2"
+          >回首頁</button>
+        </a>
       </div>
       <p class="mb-1">
         <span class="text-secondary">
@@ -42,7 +66,11 @@
           地址：
         </span>
         {{restaurant.location}}
-        <a href="{{restaurant.google_map}}" class="text-secondary" target="_blank">
+        <a
+          href="{{restaurant.google_map}}"
+          class="text-secondary"
+          target="_blank"
+        >
           <span class="pr-2"><i class="fas fa-location-arrow fa-xs"></i></span>
         </a>
       </p>
@@ -59,9 +87,63 @@
         {{restaurant.description}}
       </p>
 
-      <img class="rounded mx-auto d-block mb-2 w-100" src="{{restaurant.image}}" alt="{{restaurant.name
-      }}" style="max-width: 600px;">
-      
+      <img
+        class="rounded mx-auto d-block mb-2 w-100"
+        src="{{restaurant.image}}"
+        alt="{{restaurant.name
+      }}"
+        style="max-width: 600px;"
+      >
+
     </div>
-  </div>   
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModal{{restaurant._id}}"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          class="modal-title"
+          id="exampleModalLabel"
+        >{{restaurant.name}}</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        確認刪除此餐廳?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >取消</button>
+        <form
+          action="/restaurants/{{ restaurant._id }}?_method=DELETE"
+          method="POST"
+          style="display: inline;"
+        >
+          <button
+            type="submit"
+            class="btn btn-warning"
+          >刪除餐廳</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

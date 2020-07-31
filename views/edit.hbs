@@ -1,53 +1,137 @@
-<div class="card" style="width: 30rem; margin: 5% auto;">
-  <div class="card-header" >
+<div
+  class="card"
+  style="width: 30rem; margin: 5% auto;"
+>
+  <div class="card-header">
     修改餐廳資訊
   </div>
   <div class="card-body">
-    <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
+    <form
+      action="/restaurants/{{ restaurant._id }}?_method=PUT"
+      method="POST"
+    >
       <div class="form-group">
         <label for="">餐廳中文名稱</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="餐廳中文名稱" name="name" value="{{ restaurant.name }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="餐廳中文名稱"
+          name="name"
+          value="{{ restaurant.name }}"
+        >
       </div>
       <div class="form-group">
         <label for="">餐廳英文名稱</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="餐廳英文名稱" name="name_en" value="{{ restaurant.name_en }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="餐廳英文名稱"
+          name="name_en"
+          value="{{ restaurant.name_en }}"
+        >
       </div>
       <div class="form-group">
         <label for="">料理類型</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="料理類型" name="category" value="{{ restaurant.category }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="料理類型"
+          name="category"
+          value="{{ restaurant.category }}"
+        >
       </div>
       <div class="form-group">
         <label for="">地址</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="地址" name="location" value="{{ restaurant.location }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="地址"
+          name="location"
+          value="{{ restaurant.location }}"
+        >
       </div>
       <div class="form-group">
         <label for="">電話</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="電話" name="phone" value="{{ restaurant.phone }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="電話"
+          name="phone"
+          value="{{ restaurant.phone }}"
+        >
       </div>
       <div class="form-group">
         <label for="">評分</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="評分" name="rating" value="{{ restaurant.rating }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="評分"
+          name="rating"
+          value="{{ restaurant.rating }}"
+        >
       </div>
       <div class="form-group">
         <label for="">地圖（請輸入網址)</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="地圖（請輸入網址)" name="google_map" value="{{ restaurant.google_map }}" >
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="地圖（請輸入網址)"
+          name="google_map"
+          value="{{ restaurant.google_map }}"
+        >
       </div>
       <div class="form-group">
         <label for="">詳細資訊</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="詳細資訊" name="description" value="{{ restaurant.description }}">
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="詳細資訊"
+          name="description"
+          value="{{ restaurant.description }}"
+        >
       </div>
       <div class="form-group">
         <label for="">照片（請輸入網址)</label>
-        <input type="text" class="form-control" id="" aria-describedby="" placeholder="照片" name="image" value="{{ restaurant.image }}"> 
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          aria-describedby=""
+          placeholder="照片"
+          name="image"
+          value="{{ restaurant.image }}"
+        >
       </div>
       {{!-- <div class="form-group">
         <label for="exampleFormControlFile1">照片</label>
         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" >
       </div> --}}
-      <button type="submit" class="btn btn-primary">修改</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >修改</button>
       <a href="/restaurants/{{ restaurant._id }}">
-        <button type="bottpn" class="btn btn-secondary">回詳細資訊</button>
-      </a>  
+        <button
+          type="bottpn"
+          class="btn btn-secondary"
+        >回詳細資訊</button>
+      </a>
     </form>
   </div>
 </div>
