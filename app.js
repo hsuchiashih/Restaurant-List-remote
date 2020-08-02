@@ -4,17 +4,15 @@ const app = express()
 const port = 3000
 // require express-handlebars here
 const exphbs = require('express-handlebars')
-
 // require body-parser
 const bodyParser = require('body-parser')
-// 載入 method-override
+// require method-override
 const methodOverride = require('method-override') 
-// 引用路由器
+// require 路由器
 const routes = require('./routes')
-// 引用mongoose
+// require mongoose
 require('./config/mongoose')
 
-const restaurantList = require('./models/restaurant')
 
 // setting template engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -27,8 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 // 將 request 導入路由器
 app.use(routes)
-
-// routes setting
 
 
 // start and listen on the Express server

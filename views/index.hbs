@@ -23,7 +23,7 @@
           class="d-flex"
           style="justify-content: flex-end;"
         >
-          <a href="./restaurants/new">
+          <a href="/restaurants/new">
             <button
               type="button"
               class="btn btn-outline-info"
@@ -151,7 +151,7 @@
                 role="group"
                 aria-label="Basic example"
               >
-                <a href="./restaurants/{{ this._id }}/edit">
+                <a href="/restaurants/{{ this._id }}/edit">
                   <button
                     type="button"
                     class="btn btn-info"
@@ -202,7 +202,7 @@
                   data-dismiss="modal"
                 >取消</button>
                 <form
-                  action="./restaurants/{{ this._id }}?_method=DELETE"
+                  action="/restaurants/{{ this._id }}?_method=DELETE"
                   method="POST"
                   style="display: inline;"
                 >
